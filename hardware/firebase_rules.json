@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "homes": {
+      "$homeId": {
+        ".read": "$homeId === 'demo-home' && auth != null && (auth.uid === 'REPLACE_APP_USER_UID' || auth.uid === 'REPLACE_DEVICE_USER_UID')",
+        ".write": "$homeId === 'demo-home' && auth != null && (auth.uid === 'REPLACE_APP_USER_UID' || auth.uid === 'REPLACE_DEVICE_USER_UID')"
+      }
+    }
+  }
+}
