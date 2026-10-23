@@ -138,3 +138,65 @@ Smart_Home_Twin_App_2026/
 ## What is not supplied
 
 ESP32 firmware depends on your specific board, installed Arduino libraries, network configuration, wiring checks and sensor power levels. This **app-only** archive contains the complete Flutter cloud client and the protocol the firmware must follow, but does **not** include a verified flashed ESP32 binary or a production IoT backend. A separate physical-device test is necessary to prove LEDs and servo movement.
+
+## Firebase Cloud Integration — October 2026
+
+NexaHome now supports authenticated connectivity to Firebase Realtime Database.
+
+### Firebase Project Configuration
+
+- **Project Name:** NexaHome
+- **Firebase Project ID:** `nexahome-e71d2`
+- **Database:** Firebase Realtime Database
+- **Database Region:** `asia-southeast1` (Singapore)
+- **Database URL:** `https://nexahome-e71d2-default-rtdb.asia-southeast1.firebasedatabase.app`
+- **Home ID:** `demo-home`
+- **Authentication:** Firebase Email/Password
+
+### Current Status
+
+The following features have been configured and tested:
+
+- Firebase project and Realtime Database created
+- Firebase Email/Password Authentication enabled
+- Firebase user account created
+- Authentication-based Realtime Database security rules configured
+- Flutter application successfully authenticated to Firebase
+- NexaHome displays an active cloud session
+
+### Planned Simulation Cloud Synchronization
+
+The next development milestone is to automatically synchronize simulated smart-home data with Firebase, including:
+
+- Room-level appliance ON/OFF states
+- Simulated temperature and humidity
+- Energy consumption and electricity cost estimates
+- Simulation settings and device configurations
+- Restoration of saved simulation data after restarting the application
+
+### Architecture
+
+```text
+NexaHome Flutter Application
+          |
+          v
+Local Smart-Home Simulation
+          |
+          v
+Firebase Realtime Database
+          |
+          v
+Persistent Cloud Data
+```
+
+### Security
+
+Firebase database access is restricted to authorized authenticated users. Firebase account passwords, authentication tokens, and service-account private keys must never be committed to GitHub.
+
+### Hardware Requirements
+
+Physical IoT hardware is not required for the planned simulation-to-cloud workflow.
+
+### Development Note
+
+Firebase authentication is working. Automatic synchronization of local simulation data and database read/write verification are still pending.
